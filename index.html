@@ -177,6 +177,23 @@
     display: block;
     margin-bottom: 0.4rem;
   }
+  .methodology .score-key {
+    list-style: none;
+    padding: 0;
+    margin: 0.65rem 0 0.65rem 0.2rem;
+  }
+  .methodology .score-key li {
+    padding: 0.1rem 0;
+    line-height: 1.5;
+  }
+  .methodology .score-key b {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 0.95em;
+    display: inline-block;
+    min-width: 1.2em;
+  }
 
   /* ---------- CONTROLS ---------- */
   .controls {
@@ -403,7 +420,9 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
     font-weight: 700;
-    cursor: help;
+    /* Custom info cursor: a lower-case "i" in a circle. Falls back to
+       default arrow on browsers that reject the data URI. */
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8.5' fill='white' stroke='%231a1814' stroke-width='1.5'/><circle cx='10' cy='5.5' r='1.1' fill='%231a1814'/><rect x='9' y='8' width='2' height='7' fill='%231a1814'/></svg>") 10 10, default;
     position: relative;
     border: 1px solid rgba(26,24,20,0.15);
     transition: transform 0.1s, box-shadow 0.1s;
@@ -418,9 +437,13 @@
   .score.s-0 { background: var(--s0); color: var(--s0-ink); }
   .score.s-na { background: var(--neutral); color: var(--paper); opacity: 0.5; }
 
-  /* Confidence indicators — a small corner dot */
+  /* Confidence indicators — small corner dots.
+     Currently all scores are placeholders, so the placeholder dot is
+     suppressed to avoid visual noise. When cells become verified, the
+     secondary/primary rules below will take effect. To re-enable the
+     placeholder dot, restore the `content: ''` line. */
   .score.conf-placeholder::after {
-    content: '';
+    /* content: ''; */
     position: absolute;
     top: -2px;
     right: -2px;
@@ -582,7 +605,14 @@
 
   <div class="methodology">
     <strong>A note on methodology</strong>
-    This is a <em>framework</em>, not an authoritative ranking. Scores populated here are illustrative placeholders drawing on commonly-cited sources (NCSL, Verified Voting, Brennan Center, state statutes). Before publication, every cell should be verified against primary sources and dated. Each criterion is scored 0–3: <strong>3</strong> = strong protections, <strong>2</strong> = adequate, <strong>1</strong> = weak, <strong>0</strong> = absent or actively harmful. Hover any score for the rationale. A small <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);vertical-align:1px"></span> dot indicates an unverified placeholder; a <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#d98c2b;vertical-align:1px"></span> indicates a secondary source; no dot indicates primary-source verification. Data lives in <code>scorecard-data.json</code> — edit the JSON to update scores, notes, and sources.
+    This is a <em>framework</em>, not an authoritative ranking. Scores populated here are illustrative placeholders drawing on commonly-cited sources (NCSL, Verified Voting, Brennan Center, state statutes). Before publication, every cell should be verified against primary sources and dated. Each criterion is scored 0–3:
+    <ul class="score-key">
+      <li><b>0</b> = absent or actively harmful</li>
+      <li><b>1</b> = weak</li>
+      <li><b>2</b> = adequate</li>
+      <li><b>3</b> = strong protections</li>
+    </ul>
+    Hover any score for the rationale. Data lives in <code>scorecard-data.json</code> — edit the JSON to update scores, notes, and sources.
   </div>
 
   <!-- Criteria Legend -->
