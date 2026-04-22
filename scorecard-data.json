@@ -1,0 +1,2851 @@
+{
+  "schema_version": "1.0",
+  "description": "State election integrity scorecard data. Scores are illustrative placeholders until primary-source-verified.",
+  "criteria_definitions": {
+    "stf": {
+      "name": "Staffing",
+      "long_name": "Election Administration Staffing",
+      "description": "Adequate, trained personnel at state and local levels. Funding stability, training mandates, protection from threats/harassment.",
+      "indicators": [
+        "Dedicated state funding streams",
+        "Training requirements for officials",
+        "Legal protection for election workers"
+      ]
+    },
+    "mch": {
+      "name": "Voting Machines",
+      "long_name": "Voting Machine Security",
+      "description": "Security posture of voting equipment: certification, paper-based systems, prohibition of internet-connected tabulators.",
+      "indicators": [
+        "Voter-marked paper ballots",
+        "EAC-certified equipment",
+        "No wireless modems in tabulators"
+      ]
+    },
+    "dsc": {
+      "name": "Official Discretion",
+      "long_name": "Constraints on Official Discretion",
+      "description": "Constraints on local officials' ability to decertify, delay, or selectively count results. Clear mandatory certification statutes.",
+      "indicators": [
+        "Mandatory certification deadlines",
+        "Enforcement mechanisms for refusals",
+        "Limited grounds for challenge"
+      ]
+    },
+    "aud": {
+      "name": "Audit Procedures",
+      "long_name": "Post-Election Audit Procedures",
+      "description": "Post-election audit rigor. Risk-limiting audits (RLAs), chain-of-custody, transparency, public observability.",
+      "indicators": [
+        "Statutorily required RLAs",
+        "Pre-certification timing",
+        "Ballot-level comparison capability"
+      ]
+    },
+    "ppr": {
+      "name": "Paper Trail",
+      "long_name": "Voter-Verifiable Paper Trail",
+      "description": "Durable, voter-verifiable paper records for every ballot cast. Retention periods and physical security of paper.",
+      "indicators": [
+        "Voter-verifiable paper record",
+        "22-month retention (federal minimum)",
+        "Secure storage protocols"
+      ]
+    },
+    "rol": {
+      "name": "Voter Rolls",
+      "long_name": "Voter Roll Integrity",
+      "description": "Accuracy and integrity of registration lists. Process transparency, due-process protections for removal, ERIC participation.",
+      "indicators": [
+        "Regular, transparent maintenance",
+        "Due process before removal",
+        "Cross-state data sharing"
+      ]
+    },
+    "box": {
+      "name": "Ballot Logistics",
+      "long_name": "Ballot Logistics & Drop Box Security",
+      "description": "Security of drop boxes, mail-ballot return, and chain of custody from voter to tabulation.",
+      "indicators": [
+        "Surveilled, tamper-evident drop boxes",
+        "Documented chain of custody",
+        "Signature verification standards"
+      ]
+    }
+  },
+  "scoring_scale": {
+    "3": {
+      "label": "Strong",
+      "description": "Strong protections in place"
+    },
+    "2": {
+      "label": "Adequate",
+      "description": "Adequate but room for improvement"
+    },
+    "1": {
+      "label": "Weak",
+      "description": "Weak protections"
+    },
+    "0": {
+      "label": "Absent/Harmful",
+      "description": "Absent or actively harmful"
+    }
+  },
+  "confidence_levels": {
+    "placeholder": "Illustrative value; not sourced",
+    "secondary": "Based on secondary sources (news, advocacy orgs)",
+    "primary": "Verified against primary sources (statutes, state election websites)"
+  },
+  "states": [
+    {
+      "state": "Alabama",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "Limited state funding; no mandatory training statute",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots statewide; ES&S equipment",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed certification deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Post-election audit required but not RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper ballots mandated",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Aggressive list maintenance; not ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "No-excuse absentee limited",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Alaska",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State-run system; stable funding",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; Dominion ImageCast",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Centralized certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Hand-count audit of random precincts",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Automatic voter registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Ranked-choice with paper trail",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Arizona",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "Local officials faced harassment post-2020",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; logic/accuracy testing required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 1,
+          "note": "Cochise County 2022 certification refusal; legislation pending",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Hand-count audit; limited RLA pilots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-verifiable paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Left ERIC in 2023",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes with surveillance requirements",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Arkansas",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "Limited training mandates",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "BMD-heavy; paper record printed",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited post-election review",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "BMD paper record (not hand-marked)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee rules",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "California",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "Well-funded county offices; strong training",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper-based; state certification on top of EAC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strict mandatory certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "1% manual tally; RLA pilots expanding",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-verified paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC member; same-day registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Universal mail ballots; tracked drop boxes",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Colorado",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "National model for election admin",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; rigorous certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification law",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 3,
+          "note": "First state with statewide RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Mail-ballot state with robust drop box security",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Connecticut",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Municipal-run; uneven training",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Hand-marked paper ballots statewide",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification norms",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "5% post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Expanding early voting",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Delaware",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State-run; adequate funding",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "BMD statewide (ExpressVote XL)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Clear certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit requirement",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "BMD paper record",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Mail ballot options",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Florida",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run; funding varies",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; logic/accuracy testing",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines; state preemption",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Manual audit of sample required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Left ERIC 2023; aggressive purges",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Drop boxes restricted post-2021",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Georgia",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "SB 202 penalties chill admin; takeover provisions",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "BMD-only (Dominion ICX); controversial",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 1,
+          "note": "State board takeover of local boards",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "RLA pilots; concerns re: BMD auditability",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 1,
+          "note": "QR-code printouts (not text voters can verify)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Left ERIC 2023; purges litigated",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Drop boxes restricted to early-voting sites",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Hawaii",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State-run; stable",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; Hart Verity",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Centralized",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Universal mail ballots since 2020",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Idaho",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "Limited state support",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "No mandatory RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive mail rules",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Illinois",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Chicago Board + county variation",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; mixed vendors",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Statutory deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "5% retabulation audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes permitted",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Indiana",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-run with limited state support",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "DRE systems still used in many counties",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Clear deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit requirement",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 1,
+          "note": "Some counties lack paper trail",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Left ERIC 2023",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee access",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Iowa",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County auditors; adequate",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots, optical scan",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "2% post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Aggressive maintenance",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Mail ballot restrictions tightened",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Kansas",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-level variation",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Mixed BMD/paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Statutory deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "BMD records in many counties",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "History of aggressive purges",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Drop box restrictions",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Kentucky",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Improved post-2020; bipartisan SOS",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; strong logic/accuracy testing",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong mandatory certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Expanded early voting 2021",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Louisiana",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "State-run; funding concerns",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 0,
+          "note": "DRE-only, no paper trail (only state lacking)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 0,
+          "note": "No meaningful audit possible without paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 0,
+          "note": "No voter-verifiable paper trail",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Maine",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "Town clerks well-trained; stable",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Hand-marked paper; RCV",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification law",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit; RLA piloted",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "Same-day registration; ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Secure absentee process",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Maryland",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State board + 24 local boards; adequate",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots (ES&S DS200)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong statutory certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 3,
+          "note": "RLA since 2018; audit trail online",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member; automatic registration 2019",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes with chain-of-custody logs",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Massachusetts",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "Strong municipal admin",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Hand-marked paper; optical scan",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "3% hand audit required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; same-day registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Mail voting made permanent 2022",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Michigan",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Local clerks; Prop 2 added protections",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; rigorous certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Prop 2 (2022) strengthened certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 3,
+          "note": "RLA required by law",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC member; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Prop 2 expanded drop boxes with security",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Minnesota",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "High turnout state; strong admin",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; optical scan",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; same-day registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Robust mail ballot system",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Mississippi",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-level; limited funding",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "Some DRE counties remain",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "No mandatory RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "Mixed paper/DRE",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 0,
+          "note": "Very restrictive absentee; no drop boxes",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Missouri",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-level admin",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "BMD + paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "Mixed systems",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Left ERIC 2023",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee rules",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Montana",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County clerks; adequate",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots statewide",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Mostly mail voting",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Nebraska",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run; stable",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Some vote-by-mail counties",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Nevada",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Clark County dominant; improving",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots + BMD",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Nye County 2022 issues resolved",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper trail",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Universal mail ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "New Hampshire",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Town-level admin; tradition-bound",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Hand-marked paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification norms",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Same-day registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "New Jersey",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run; adequate",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "Legacy DRE in some counties; transitioning",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit of DRE results",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 1,
+          "note": "Transition to paper ongoing",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes with surveillance",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "New Mexico",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County clerks; strong SOS",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification; Otero County issues resolved",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Expanded mail voting",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "New York",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run; bipartisan boards",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; optical scan",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Bipartisan board structure slows certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "3% audit required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Early voting expanded 2019",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "North Carolina",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State board + county boards",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots statewide 2020+",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Bipartisan boards; state-level oversight",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Sample audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Drop box restrictions",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "North Dakota",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "No voter registration state",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "No registration system",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Mail voting expanded",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Ohio",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run with state oversight",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots; optical scan",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Aggressive purges; Husted v. APRI",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "One drop box per county rule",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Oklahoma",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State board; uniform system",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots, hand-marked",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 0,
+          "note": "Very restrictive absentee; no drop boxes",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Oregon",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "Strong county admin; state support",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots universal",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; automatic registration since 2016",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "First universal vote-by-mail state",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Pennsylvania",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County-run; contentious environment",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots since 2020",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Luzerne/Fulton County issues; pre-canvass restrictions",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "2% audit; RLA piloted",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes upheld in courts",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Rhode Island",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "State board; small scale",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes permitted",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "South Carolina",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "State Election Commission; limited resources",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "BMD-only statewide (ES&S ExpressVote)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Post-election audit of sample",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 1,
+          "note": "BMD paper record",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "South Dakota",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County auditors; limited",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "No mandatory RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Tennessee",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-run; limited state support",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 1,
+          "note": "DRE in many counties (no paper trail)",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Cannot audit DRE results meaningfully",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 1,
+          "note": "No paper trail in many counties",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 0,
+          "note": "No drop boxes; restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Texas",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County-run; SB1 added penalties chilling admin",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper trail required 2020; BMDs widespread",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 1,
+          "note": "SB1 added grounds for challenge; state takeover of Harris Co.",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit capability",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 2,
+          "note": "BMD records in many counties",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Left ERIC 2023; aggressive purges",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 0,
+          "note": "One drop box per county; SB1 restrictions",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Utah",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "County clerks; stable",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election RLA pilots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Universal mail ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Vermont",
+      "region": "Northeast",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "Town clerks; well-resourced",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Hand-marked paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Universal mail ballots since 2020",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Virginia",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "Local registrars; state support",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 3,
+          "note": "Statutorily required RLA",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 2,
+          "note": "Drop boxes permitted; tracking required",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Washington",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 3,
+          "note": "County auditors; well-resourced",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots universal",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 3,
+          "note": "Strong certification",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Post-election audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 3,
+          "note": "ERIC; automatic registration",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 3,
+          "note": "Universal vote-by-mail",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "West Virginia",
+      "region": "South",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County clerks; limited resources",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Wisconsin",
+      "region": "Midwest",
+      "criteria": {
+        "stf": {
+          "score": 2,
+          "note": "WEC + municipal; contentious environment",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 3,
+          "note": "Paper ballots; logic/accuracy testing",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Bipartisan WEC; litigation over 2020",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 2,
+          "note": "Sample audit post-election",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Voter-marked paper",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 2,
+          "note": "ERIC member",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Drop boxes restricted by court 2022, then restored 2024",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    },
+    {
+      "state": "Wyoming",
+      "region": "West",
+      "criteria": {
+        "stf": {
+          "score": 1,
+          "note": "County clerks; small state",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "mch": {
+          "score": 2,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "dsc": {
+          "score": 2,
+          "note": "Fixed deadlines",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "aud": {
+          "score": 1,
+          "note": "Limited audit",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "ppr": {
+          "score": 3,
+          "note": "Paper ballots",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "rol": {
+          "score": 1,
+          "note": "Not ERIC",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        },
+        "box": {
+          "score": 1,
+          "note": "Restrictive absentee",
+          "sources": [],
+          "last_verified": null,
+          "confidence": "placeholder"
+        }
+      }
+    }
+  ]
+}

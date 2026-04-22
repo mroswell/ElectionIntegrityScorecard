@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>State Election Integrity Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3d3833;
+    --paper: #f5f0e6;
+    --paper-deep: #ebe3d4;
+    --rule: #c9bfa8;
+    --accent: #9e2a2b;
+    --accent-soft: #c1504f;
+    --neutral: #6b6558;
+
+    /* Score palette — overridden by data-theme attribute on <body>.
+       Defaults below are the "Editorial" scheme (the original). */
+    --s3: #2d5016;   /* strong */
+    --s2: #8a9a46;   /* adequate */
+    --s1: #d98c2b;   /* weak */
+    --s0: #7a1a1b;   /* absent/harmful */
+    --s3-ink: #ffffff;
+    --s2-ink: #1a1814;
+    --s1-ink: #1a1814;
+    --s0-ink: #ffffff;
+  }
+
+  /* ---------- THEME: Editorial (original, refined for contrast) ---------- */
+  body[data-theme="editorial"] {
+    --s3: #2d5016; --s3-ink: #ffffff;
+    --s2: #8a9a46; --s2-ink: #1a1814;
+    --s1: #d98c2b; --s1-ink: #1a1814;
+    --s0: #7a1a1b; --s0-ink: #ffffff;
+  }
+
+  /* ColorBrewer YlOrBr (sequential, single-hue progression, no red/blue) */
+  body[data-theme="ylorbr"] {
+    --s3: #662506; --s3-ink: #ffffff;
+    --s2: #cc4c02; --s2-ink: #ffffff;
+    --s1: #fe9929; --s1-ink: #1a1814;
+    --s0: #fee391; --s0-ink: #1a1814;
+  }
+
+  /* ColorBrewer PRGn (diverging purple-green, avoids red/blue) */
+  body[data-theme="prgn"] {
+    --s3: #1b7837; --s3-ink: #ffffff;
+    --s2: #a6dba0; --s2-ink: #1a1814;
+    --s1: #c2a5cf; --s1-ink: #1a1814;
+    --s0: #762a83; --s0-ink: #ffffff;
+  }
+
+  /* Viridis-inspired (perceptually uniform, colorblind-safe) */
+  body[data-theme="viridis"] {
+    --s3: #fde725; --s3-ink: #1a1814;
+    --s2: #5ec962; --s2-ink: #1a1814;
+    --s1: #3b528b; --s1-ink: #ffffff;
+    --s0: #440154; --s0-ink: #ffffff;
+  }
+
+  /* High-contrast monochrome (ink-to-paper ramp) */
+  body[data-theme="mono"] {
+    --s3: #1a1814; --s3-ink: #f5f0e6;
+    --s2: #5c564c; --s2-ink: #f5f0e6;
+    --s1: #a69d87; --s1-ink: #1a1814;
+    --s0: #e8dfc9; --s0-ink: #1a1814;
+  }
+
+  /* Earth / autumn (warm sequential, no red/blue) */
+  body[data-theme="earth"] {
+    --s3: #543005; --s3-ink: #ffffff;
+    --s2: #8c6d31; --s2-ink: #ffffff;
+    --s1: #dfc27d; --s1-ink: #1a1814;
+    --s0: #f6e8c3; --s0-ink: #1a1814;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    line-height: 1.5;
+    padding: 2rem 1.5rem 6rem;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(158,42,43,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(58,90,64,0.04) 0%, transparent 40%);
+  }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 2rem 0 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    max-width: 56ch;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  .meta {
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--neutral);
+    text-align: right;
+    letter-spacing: 0.05em;
+  }
+  .meta strong { color: var(--ink); display: block; font-size: 0.8rem; }
+
+  /* ---------- METHODOLOGY NOTE ---------- */
+  .methodology {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .methodology strong {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ---------- CONTROLS ---------- */
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .control-group label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  input[type="text"], select {
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    min-width: 160px;
+    transition: border-color 0.15s;
+  }
+  input[type="text"] { min-width: 240px; }
+  input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--accent); }
+
+  /* ---------- CRITERIA LEGEND ---------- */
+  .criteria-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    margin-bottom: 2rem;
+    border: 1px solid var(--ink);
+  }
+  .criteria-legend details {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .criteria-legend summary {
+    cursor: pointer;
+    padding: 0.9rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    list-style: none;
+  }
+  .criteria-legend summary::-webkit-details-marker { display: none; }
+  .criteria-legend summary::before {
+    content: '+';
+    font-size: 1.1rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+  }
+  .criteria-legend details[open] summary::before { content: '−'; }
+  .criteria-legend .detail-body {
+    padding: 0 1rem 1rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .criteria-legend .detail-body ul {
+    margin-top: 0.5rem;
+    padding-left: 1.1rem;
+  }
+  .criteria-legend .detail-body li { margin-bottom: 0.3rem; }
+  .criteria-code {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- COLOR KEY ---------- */
+  .color-key {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    font-size: 0.85rem;
+  }
+  .color-key .key-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .color-key .key-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--ink-soft);
+  }
+  .color-key .score {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    cursor: default;
+  }
+  .color-key .score:hover { transform: none; box-shadow: none; }
+
+  /* ---------- TABLE ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.85rem 0.6rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:first-child { text-align: left; padding-left: 1rem; }
+  thead th.state-col { text-align: left; min-width: 180px; }
+  thead th .sort-arrow {
+    display: inline-block;
+    margin-left: 0.25rem;
+    opacity: 0.4;
+    font-size: 0.8rem;
+  }
+  thead th.sorted .sort-arrow { opacity: 1; color: var(--accent-soft); }
+
+  tbody tr {
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.1s;
+  }
+  tbody tr:hover { background: var(--paper-deep); }
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody td {
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+  tbody td.state-cell {
+    text-align: left;
+    padding-left: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  tbody td.state-cell .region {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--neutral);
+    font-weight: 400;
+    margin-top: 0.1rem;
+  }
+
+  /* Score cells */
+  .score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: help;
+    position: relative;
+    border: 1px solid rgba(26,24,20,0.15);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .score:hover {
+    transform: scale(1.12);
+    box-shadow: 0 2px 8px rgba(26,24,20,0.2);
+  }
+  .score.s-3 { background: var(--s3); color: var(--s3-ink); }
+  .score.s-2 { background: var(--s2); color: var(--s2-ink); }
+  .score.s-1 { background: var(--s1); color: var(--s1-ink); }
+  .score.s-0 { background: var(--s0); color: var(--s0-ink); }
+  .score.s-na { background: var(--neutral); color: var(--paper); opacity: 0.5; }
+
+  /* Confidence indicators — a small corner dot */
+  .score.conf-placeholder::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1.5px solid var(--paper);
+  }
+  .score.conf-secondary::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--warn, #d98c2b);
+    border: 1.5px solid var(--paper);
+  }
+  .score.conf-primary::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid transparent;
+  }
+
+  /* Total score cell */
+  td.total-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  td.total-cell .bar {
+    display: block;
+    height: 3px;
+    margin-top: 0.35rem;
+    background: var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  td.total-cell .bar-fill {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    background: var(--accent);
+  }
+
+  /* ---------- TOOLTIP ---------- */
+  .tooltip {
+    position: fixed;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    max-width: 280px;
+    font-family: 'Fraunces', serif;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(26,24,20,0.2);
+  }
+  .tooltip.show { opacity: 1; }
+  .tooltip::before {
+    content: attr(data-criterion);
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 0.3rem;
+  }
+  .tooltip .tt-footer {
+    margin-top: 0.5rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(245,240,230,0.15);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: rgba(245,240,230,0.65);
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .stats {
+    display: flex;
+    gap: 0;
+    margin-top: 1rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-deep);
+  }
+  .stat {
+    flex: 1;
+    padding: 0.9rem 1rem;
+    border-right: 1px solid var(--rule);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--neutral);
+  }
+  .stat-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Fraunces', serif;
+    margin-top: 0.2rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--neutral);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .controls { grid-template-columns: 1fr 1fr 1fr; }
+    .controls .control-group:first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 820px) {
+    .controls { grid-template-columns: 1fr 1fr; }
+    .controls .control-group:first-child { grid-column: 1 / -1; }
+    .meta { position: static; text-align: left; margin-top: 1rem; }
+    h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body data-theme="editorial">
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Draft Scorecard · v0.1 · For SMART Elections et al.</div>
+    <h1>State Election Integrity <em>Scorecard</em></h1>
+    <p class="lede">A comparative rubric for evaluating U.S. states across seven pillars of election administration — from staffing adequacy to audit procedures. Scores reflect policy frameworks, not partisan outcomes.</p>
+    <div class="meta">
+      <strong>Last updated</strong>
+      April 2026<br>
+      <strong>Editable template</strong>
+    </div>
+  </header>
+
+  <div class="methodology">
+    <strong>A note on methodology</strong>
+    This is a <em>framework</em>, not an authoritative ranking. Scores populated here are illustrative placeholders drawing on commonly-cited sources (NCSL, Verified Voting, Brennan Center, state statutes). Before publication, every cell should be verified against primary sources and dated. Each criterion is scored 0–3: <strong>3</strong> = strong protections, <strong>2</strong> = adequate, <strong>1</strong> = weak, <strong>0</strong> = absent or actively harmful. Hover any score for the rationale. A small <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);vertical-align:1px"></span> dot indicates an unverified placeholder; a <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#d98c2b;vertical-align:1px"></span> indicates a secondary source; no dot indicates primary-source verification. Data lives in <code>scorecard-data.json</code> — edit the JSON to update scores, notes, and sources.
+  </div>
+
+  <!-- Criteria Legend -->
+  <div class="criteria-legend" id="criteria-legend">
+    <!-- Populated from scorecard-data.json on load -->
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="control-group" style="grid-column: 1;">
+      <label for="search">Filter by state</label>
+      <input type="text" id="search" placeholder="e.g. Maryland, Pennsylvania…">
+    </div>
+    <div class="control-group">
+      <label for="region">Region</label>
+      <select id="region">
+        <option value="">All regions</option>
+        <option>Northeast</option>
+        <option>Midwest</option>
+        <option>South</option>
+        <option>West</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="theme">Color scheme</label>
+      <select id="theme">
+        <option value="editorial">Editorial (original)</option>
+        <option value="ylorbr">ColorBrewer YlOrBr (sequential)</option>
+        <option value="prgn">ColorBrewer PRGn (purple↔green)</option>
+        <option value="viridis">Viridis (colorblind-safe)</option>
+        <option value="mono">Monochrome</option>
+        <option value="earth">Earth / Autumn</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="total-desc">Total (high → low)</option>
+        <option value="total-asc">Total (low → high)</option>
+        <option value="name-asc">State (A → Z)</option>
+      </select>
+    </div>
+    <button class="btn" id="export">Export CSV</button>
+  </div>
+
+  <!-- Color key -->
+  <div class="color-key" id="color-key">
+    <span class="key-label">Score key:</span>
+    <span class="key-item"><span class="score s-3">3</span> Strong</span>
+    <span class="key-item"><span class="score s-2">2</span> Adequate</span>
+    <span class="key-item"><span class="score s-1">1</span> Weak</span>
+    <span class="key-item"><span class="score s-0">0</span> Absent / Harmful</span>
+    <span class="key-item"><span class="score s-na">—</span> N/A</span>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table id="scorecard">
+      <thead>
+        <tr>
+          <th class="state-col" data-sort="name">State <span class="sort-arrow">◆</span></th>
+          <th data-sort="stf" title="Staffing">STF <span class="sort-arrow">◆</span></th>
+          <th data-sort="mch" title="Voting Machines">MCH <span class="sort-arrow">◆</span></th>
+          <th data-sort="dsc" title="Official Discretion">DSC <span class="sort-arrow">◆</span></th>
+          <th data-sort="aud" title="Audit Procedures">AUD <span class="sort-arrow">◆</span></th>
+          <th data-sort="ppr" title="Paper Trail">PPR <span class="sort-arrow">◆</span></th>
+          <th data-sort="rol" title="Voter Rolls">ROL <span class="sort-arrow">◆</span></th>
+          <th data-sort="box" title="Ballot Logistics">BOX <span class="sort-arrow">◆</span></th>
+          <th data-sort="total" class="sorted">Total <span class="sort-arrow">▼</span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats" id="stats"></div>
+
+  <footer>
+    <div>Template for advocacy use · Scores are <em>illustrative placeholders</em> requiring source verification</div>
+    <div>Sources to consult: NCSL, Verified Voting, Brennan Center, EAC, state election codes</div>
+  </footer>
+
+</div>
+
+<div class="tooltip" id="tooltip" data-criterion=""></div>
+
+<script>
+// ============================================================
+// DATA — loaded from scorecard-data.json at runtime
+// Edit the JSON file, not this HTML, to update scores.
+// ============================================================
+const DATA_URL = 'scorecard-data.json';
+
+let CRITERIA = [];   // populated from JSON
+let STATES = [];     // populated from JSON
+let CRITERIA_DEFS = {};  // full definitions from JSON
+
+async function loadData() {
+  try {
+    const resp = await fetch(DATA_URL);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    CRITERIA_DEFS = data.criteria_definitions || {};
+    // CRITERIA is the ordered list used for rendering columns.
+    // We preserve the order from the criteria_definitions object.
+    CRITERIA = Object.keys(CRITERIA_DEFS).map(key => ({
+      key,
+      name: CRITERIA_DEFS[key].name,
+      description: CRITERIA_DEFS[key].description
+    }));
+
+    // Flatten the rich state objects into the shape the renderer expects.
+    STATES = (data.states || []).map(s => {
+      const scores = {};
+      const notes = {};
+      const sources = {};
+      const verified = {};
+      const confidence = {};
+      for (const k of Object.keys(s.criteria || {})) {
+        const c = s.criteria[k];
+        scores[k] = c.score;
+        notes[k] = c.note || '';
+        sources[k] = c.sources || [];
+        verified[k] = c.last_verified;
+        confidence[k] = c.confidence || 'placeholder';
+      }
+      return {
+        name: s.state,
+        region: s.region,
+        scores, notes, sources, verified, confidence
+      };
+    });
+
+    return true;
+  } catch (err) {
+    console.error('Failed to load data:', err);
+    const tbody = document.getElementById('tbody');
+    if (tbody) {
+      tbody.innerHTML = `<tr><td colspan="9" style="padding:2rem;text-align:center;color:var(--accent);font-style:italic">
+        Could not load <code>${DATA_URL}</code>. ${err.message}.<br>
+        <span style="font-size:0.85rem;color:var(--ink-soft);font-style:normal">
+        This page must be served over HTTP (e.g. GitHub Pages, <code>python3 -m http.server</code>, or a local dev server).
+        Opening the file directly with <code>file://</code> will be blocked by the browser.
+        </span>
+      </td></tr>`;
+    }
+    return false;
+  }
+}
+
+function renderLegend() {
+  const wrap = document.getElementById('criteria-legend');
+  if (!wrap) return;
+  wrap.innerHTML = CRITERIA.map(c => {
+    const def = CRITERIA_DEFS[c.key] || {};
+    const indicators = (def.indicators || []).map(i => `<li>${i}</li>`).join('');
+    return `<details>
+      <summary><span class="criteria-code">${c.key.toUpperCase()}</span> ${def.name || c.name}</summary>
+      <div class="detail-body">
+        ${def.description || ''}
+        ${indicators ? `<ul>${indicators}</ul>` : ''}
+      </div>
+    </details>`;
+  }).join('');
+}
+
+// ============================================================
+// RENDERING
+// ============================================================
+const tbody = document.getElementById('tbody');
+const searchEl = document.getElementById('search');
+const regionEl = document.getElementById('region');
+const sortEl = document.getElementById('sort');
+const themeEl = document.getElementById('theme');
+const statsEl = document.getElementById('stats');
+const tooltip = document.getElementById('tooltip');
+
+let sortKey = 'total';
+let sortDir = 'desc';
+
+function total(s) {
+  return CRITERIA.reduce((sum, c) => sum + (s.scores[c.key] ?? 0), 0);
+}
+function maxTotal() { return CRITERIA.length * 3; }
+
+function scoreLabel(v) {
+  if (v === 3) return 'Strong';
+  if (v === 2) return 'Adequate';
+  if (v === 1) return 'Weak';
+  if (v === 0) return 'Absent/Harmful';
+  return 'N/A';
+}
+
+function render() {
+  const q = searchEl.value.trim().toLowerCase();
+  const region = regionEl.value;
+
+  let data = STATES.map(s => ({
+    name: s.name,
+    region: s.region,
+    scores: s.scores,
+    notes: s.notes,
+    confidence: s.confidence || {},
+    verified: s.verified || {},
+    total: total(s)
+  }));
+
+  if (q) data = data.filter(d => d.name.toLowerCase().includes(q));
+  if (region) data = data.filter(d => d.region === region);
+
+  // Sorting
+  data.sort((a, b) => {
+    let va, vb;
+    if (sortKey === 'name') { va = a.name; vb = b.name; }
+    else if (sortKey === 'total') { va = a.total; vb = b.total; }
+    else { va = a.scores[sortKey] ?? -1; vb = b.scores[sortKey] ?? -1; }
+    if (va < vb) return sortDir === 'asc' ? -1 : 1;
+    if (va > vb) return sortDir === 'asc' ? 1 : -1;
+    return a.name.localeCompare(b.name);
+  });
+
+  // Render rows
+  tbody.innerHTML = data.map(d => {
+    const cells = CRITERIA.map(c => {
+      const v = d.scores[c.key];
+      const cls = v === undefined || v === null ? 's-na' : `s-${v}`;
+      const note = d.notes[c.key] || '';
+      const conf = d.confidence[c.key] || 'placeholder';
+      const ver = d.verified[c.key] || '';
+      // Tiny indicator dot on unverified cells: hollow ring via CSS class
+      const confClass = conf === 'primary' ? 'conf-primary'
+                      : conf === 'secondary' ? 'conf-secondary'
+                      : 'conf-placeholder';
+      return `<td><span class="score ${cls} ${confClass}"
+        data-criterion="${c.name}"
+        data-note="${note.replace(/"/g,'&quot;')}"
+        data-label="${scoreLabel(v)}"
+        data-confidence="${conf}"
+        data-verified="${ver}"
+      >${v ?? '—'}</span></td>`;
+    }).join('');
+    const pct = (d.total / maxTotal()) * 100;
+    return `<tr>
+      <td class="state-cell">${d.name}<span class="region">${d.region}</span></td>
+      ${cells}
+      <td class="total-cell">${d.total}/${maxTotal()}<span class="bar"><span class="bar-fill" style="width:${pct}%"></span></span></td>
+    </tr>`;
+  }).join('');
+
+  // Update stats
+  if (data.length) {
+    const totals = data.map(d => d.total);
+    const avg = (totals.reduce((a,b)=>a+b,0) / totals.length).toFixed(1);
+    const min = Math.min(...totals);
+    const max = Math.max(...totals);
+    statsEl.innerHTML = `
+      <div class="stat"><div class="stat-label">States shown</div><div class="stat-value">${data.length}</div></div>
+      <div class="stat"><div class="stat-label">Avg total</div><div class="stat-value">${avg}<span style="font-size:0.8rem;color:var(--neutral)">/${maxTotal()}</span></div></div>
+      <div class="stat"><div class="stat-label">Highest</div><div class="stat-value">${max}</div></div>
+      <div class="stat"><div class="stat-label">Lowest</div><div class="stat-value">${min}</div></div>
+    `;
+  } else {
+    statsEl.innerHTML = `<div class="stat"><div class="stat-label">No matches</div><div class="stat-value">—</div></div>`;
+  }
+
+  // Update header sort indicators
+  document.querySelectorAll('thead th').forEach(th => {
+    th.classList.remove('sorted');
+    const arrow = th.querySelector('.sort-arrow');
+    if (arrow) arrow.textContent = '◆';
+  });
+  const activeHeader = document.querySelector(`thead th[data-sort="${sortKey}"]`);
+  if (activeHeader) {
+    activeHeader.classList.add('sorted');
+    activeHeader.querySelector('.sort-arrow').textContent = sortDir === 'asc' ? '▲' : '▼';
+  }
+}
+
+// ============================================================
+// EVENT HANDLERS
+// ============================================================
+searchEl.addEventListener('input', render);
+regionEl.addEventListener('change', render);
+sortEl.addEventListener('change', () => {
+  const [k, d] = sortEl.value.split('-');
+  sortKey = k;
+  sortDir = d;
+  render();
+});
+
+// Theme switcher — persists via URL hash (?theme=xxx) so the choice
+// survives reloads and can be shared. No localStorage, which some
+// static hosts / sandboxes block anyway.
+themeEl.addEventListener('change', () => {
+  const t = themeEl.value;
+  document.body.setAttribute('data-theme', t);
+  // Update URL without reloading
+  const url = new URL(window.location.href);
+  url.searchParams.set('theme', t);
+  window.history.replaceState({}, '', url);
+});
+
+// On load: read theme from URL if present
+(function initTheme() {
+  const params = new URLSearchParams(window.location.search);
+  const t = params.get('theme');
+  const valid = ['editorial','ylorbr','prgn','viridis','mono','earth'];
+  if (t && valid.includes(t)) {
+    document.body.setAttribute('data-theme', t);
+    themeEl.value = t;
+  }
+})();
+
+document.querySelectorAll('thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.sort;
+    if (sortKey === k) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortKey = k;
+      sortDir = (k === 'name') ? 'asc' : 'desc';
+    }
+    // sync the dropdown when applicable
+    if (k === 'total') sortEl.value = `total-${sortDir}`;
+    else if (k === 'name') sortEl.value = 'name-asc';
+    render();
+  });
+});
+
+// Tooltip
+document.addEventListener('mouseover', e => {
+  const t = e.target.closest('.score');
+  if (!t) return;
+  const note = t.dataset.note;
+  const label = t.dataset.label;
+  const crit = t.dataset.criterion;
+  const conf = t.dataset.confidence;
+  const ver = t.dataset.verified;
+  if (!note && !label) return;
+  tooltip.setAttribute('data-criterion', `${crit} — ${label}`);
+
+  let body = note || 'No note provided';
+  let footer = '';
+  if (conf === 'placeholder') {
+    footer = 'Unverified · placeholder value';
+  } else if (conf === 'secondary') {
+    footer = `Secondary source${ver ? ' · verified ' + ver : ''}`;
+  } else if (conf === 'primary') {
+    footer = `Primary source${ver ? ' · verified ' + ver : ''}`;
+  }
+
+  tooltip.innerHTML = `${body}${footer ? `<div class="tt-footer">${footer}</div>` : ''}`;
+  tooltip.classList.add('show');
+});
+document.addEventListener('mousemove', e => {
+  if (!tooltip.classList.contains('show')) return;
+  const pad = 14;
+  let x = e.clientX + pad;
+  let y = e.clientY + pad;
+  const rect = tooltip.getBoundingClientRect();
+  if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - pad;
+  if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - pad;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('.score')) tooltip.classList.remove('show');
+});
+
+// CSV export
+document.getElementById('export').addEventListener('click', () => {
+  const header = ['State', 'Region', ...CRITERIA.map(c => c.name), 'Total'];
+  const rows = STATES.map(s => {
+    const vals = CRITERIA.map(c => s.scores[c.key] ?? '');
+    return [s.name, s.region, ...vals, vals.reduce((a,b)=>a+(Number(b)||0),0)];
+  });
+  const csv = [header, ...rows].map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'election-integrity-scorecard.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// Initial load + render
+(async () => {
+  // Show a loading state
+  tbody.innerHTML = `<tr><td colspan="9" style="padding:2rem;text-align:center;color:var(--ink-soft);font-style:italic">Loading data…</td></tr>`;
+  const ok = await loadData();
+  if (ok) {
+    renderLegend();
+    render();
+  }
+})();
+</script>
+</body>
+</html>
